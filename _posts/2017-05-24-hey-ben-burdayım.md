@@ -6,7 +6,7 @@ modified: 2017-05-24
 comments: true
 ---
 
-Hey Merhaba.
+Merhaba.
 
 Biliyorum çok uzun bir süredir blogum aktif değildi.Aklımda yazmak istediğim, anlatmak istediğim gazilyon tane şey vardı ama ben cesaret edip yazamadım. Daha doğrusu yazdım, sayfalarca hemde ancak paylaşma cesaretinde bulunamadım. Çünkü düşündüm ki insanlara ne benim içsel çıkarımlarımdan, hayattan aldığım derslerden, bu yazacaklarım onlara ne katacak ki, ya yazdıklarımı yargılarlarsa, peki ya beni yanlış anlarlarsa.... gibi gibi onlarca soru yığını altında ezildim. Bende paylaşmama seçeneğini seçtim. Oysaki bu blogu açmamın temel amacı ilerlememi kayıt altına almak ve insanlara faydalı olabileceğini düşündüğüm hertürlü bilgiyi paylaşmaktı. Geçmiş birkaç yazıma baktığımda ne ilerlememe dair bir şey görebiliyorum, ne de faydalı olduğunu düşündüğüm bilgiler. Kendi düşüncelerini yazmaktan neden bu kadar çekinir ki bir insan derseniz bunun bir kaç nedenini sıralayabilirim size.
 
