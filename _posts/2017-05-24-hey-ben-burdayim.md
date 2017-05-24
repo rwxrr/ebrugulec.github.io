@@ -38,4 +38,5 @@ kullanarak hayallerimin götürdüğü yere kadar gitmeye kararlıyım. Birgün 
 bütün korkularıma, baskılara inat. Bunları da seninle paylaşmak istedim. Çünkü ben burdayım.
 
 Ha bu arada unutmadan, artık yazılarımı sık sık buradan takip edebilir ve geleceğime giden yolda bana okuyucu olarak eşlik 
-edebilirsin. Fikirlerini duymayı, eleştirilerinle hatalarımı düzeltmeyi çok isterim. Şimdilik hoşçakal. Görüşmek dileği ile.
+edebilirsin. Fikirlerini duymayı, eleştirilerinle hatalarımı düzeltmeyi çok isterim. 
+Şimdilik hoşçakal. Görüşmek dileği ile.
