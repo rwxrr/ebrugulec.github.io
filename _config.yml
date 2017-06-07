@@ -8,7 +8,7 @@ markdown: kramdown
 disqus: ebrugulec-com
 google_analytics:
 title: Ebru Güleç
-
+url: "http://ebrugulec.com"
 defaults:
   -
     scope:
