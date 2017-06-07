@@ -2,7 +2,7 @@
 layout: post
 title: Fikrimuhal Stajım Bitti
 date:   2016-09-06 22:07:19
-excerpt: Fikrimuhal Stajım Bitti
+excerpt: Yaklaşık olarak 2 buçuk aydır Fikrimuhal'de...
 tags: [Fikrimuhal, Staj]
 modified: 2016-09-06
 comments: true
@@ -17,7 +17,7 @@ anlatmak ile bitmeyecek türden. Ancak her güzel şeyin bir sonu olduğu gibi s
 [Fikrimuhal](http://fikrimuhal.com/)’in her şeyini ayrı ayrı özleyeceğim aslında. Özellikle Ahmet Emre Aladağ’ın o hiç eksik olmayan
 güleryüzlü enerjisini ve klavyesinin o imrendiğim tık tık seslerini, gazilyon tane işi olan ve kendisini
 örnek aldığım Ilgaz Şumnuluyu, bilgisayarının cpu’su çok yüksek olan ve her şeyi not alan Fatih Mehmet Güler’i,
-DigiTurk de çalışan ve kendisi ile çok fazla iletişimim olmasa da yine kendime örnek aldığım insanlardan biri 
+DigiTurk de çalışan ve kendisi ile çok fazla iletişimim olmasa da yine kendime örnek aldığım insanlardan biri
 olan Şükrü Hasdemir’i, sonradan Fikrimuhal’e katılan yanında her daim kolonya taşıyan ve olaylara verdiği
 tepkiler ile ofisde bizi gülümseten Mesut Yiğit’i, son olarak da kruvasan sevdalısı, esprileri ile şok
 etkisi yaratan Mücahit Kantepe’yi(nam-ı değer diğer stajyer). Anlayacağınız o güzel çalışma ortamını,

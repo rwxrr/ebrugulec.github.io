@@ -1,22 +1,37 @@
-# top level stuff you probably don't need to touch
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md"] # files to exclude
 highlighter: rouge
 markdown: kramdown
-rdiscount:
-  extensions: [smart]
-permalink: /:title.html
-#paginate: 5
-port: 3000
-safe: true
+disqus: ebrugulec-com
+google_analytics:
+title: Ebru Güleç
 
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: Ebru Güleç
 
-# edit here to achieve your personal greatness
-url: http://www.ebrugulec.com/
-basurl: /
-title: Ebru Gulec
-author: Ebru Gulec
-description: Ebru Gulec Personl Blog
-avatar: ebru.png
-email: glcebru94@gmail.com
-github: ebrugulec
-twitter: glcebru
-google_analytics: UA-47728743-1
+description: Ebru Gulec Personal Blog
+author:
+  name: Ebru Gulec
+  email: ebru@ebrugulec.com
+  github: ebrugulec
+  twitter: glcebru
+  pinterest:
+  linkedin:
+  bio: Computer Engineering Student
+  email_md5:
+
+# set it as url of an image
+# sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
+
+BASE_PATH:
+
+gems:
+  - jekyll-paginate
+  - jemoji

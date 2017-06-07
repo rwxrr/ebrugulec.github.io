@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Scala Sınıflar(Classes) ve Nesneler(Objects)-3</title>
+	
+	<meta name="author" content="Ebru Gulec">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link rel="icon" type="image/png" href="assets/img/favicon.png" />	
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/ebrugulec">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/glcebru">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="mailto:ebru@ebrugulec.com">
+				<i class="fa fa-envelope"></i>
+			</a>
+			
+			<a class="navbar-brand" href="/">
+				<img src="/assets/img/ebru.png/?s=35" class="img-circle" />
+				Ebru Güleç
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+	<div class="col-sm-3 sidebar hidden-xs" style="">
+		<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<img src="/assets/img/ebru.png/?s=150" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="/">Ebru Güleç</a>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+	Computer Engineering Student
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/ebrugulec">
+				<i class="fa fa-github fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com/glcebru">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:ebru@ebrugulec.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+<!-- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3">
+		<div class="page-header">
+  <h1>Scala Sınıflar(Classes) ve Nesneler(Objects)-3 </h1>
+</div>
+
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   June
+	   6th,
+	   
+	   2016
+	 </span>
+	  <div class="article_body">
+	  <p>–Sınıfları ve objeleri karışıklık olmadan kullanmamızın yolu onları organize etmek yani onları bir “package” içerisinde saklamaktır. Yazdığımız kodların en başına hangi paketi kullanacağımızı belirtiriz.</p>
+
+<p>package progfun.examples 
+object Hello { … }</p>
+
+<p>Burada Hello objesini ima ettiğimizde aslında nitelendirilmiş adı olan progfun.examples.Hello ifadesinden bahsediyoruz. Örneğin Hello programını command line ile çalıştırdığımızda çalıştırdığımızda;</p>
+<blockquote>
+  <p>scala  progfun.examples.Hello</p>
+  <blockquote>
+    <p>Bir “package” içerisinde bir başkasını kullanabiliriz. Örneğin elimizde stcratch adlı bir objemiz var. Ve biz bu objemizin içerisinde b,r önceki yazımda bahsettiğim rasyonel sayılar objesini kullanmak istiyoruz. Bunu kullanabilmek için Rational sınıfının hangi “package içerisinde olduğunu bilmeliyiz ve kullanmak istediğimiz zaman “week3.Rational” şeklinde belirtmeliyiz.</p>
+  </blockquote>
+</blockquote>
+
+<script src="https://gist.github.com/GlcEbru/0fa233b4ca7665e6fe396c0d6d4dfcf7.js"></script>
+
+<p>Burada şöyle bir can sıkıcı durum var. Biz her “Rational” sınıfını kullanmak istediğimizde sınıfımızın önüne “week3” ifadesini getirmek zorundayız. Bu tekrar eden durumu önlemek için “Rational” sınıfının bulunduğun package’ ı import ederiz.</p>
+
+<script src="https://gist.github.com/GlcEbru/d5e79383274c7d446b009d1c4d1401cd.js"></script>
+
+<p>Paketleri import yani kullandığımız programa dahil etmenin birkaç yolu vardır. Yukarıdaki “Import week3.Rational” ifadesi sadece “Rational” sınıfını, kullanılan programa dahil etmiştir. Bütün “week3” paketini  import etmek istersek “_” ifadesini kulanırız.</p>
+
+<script src="https://gist.github.com/GlcEbru/21ffb3379c06dfa45962aee4b6d4ce28.js"></script>
+
+<p>Herhangi bir Scala programında otomatik olarak import edilen bazı elemanlar vaardır. Bunlar;
+▶Scala package’ın büyün üyeleri
+▶ java.lang package’ın büyün üyeleri
+▶ scala.Predef. Objesinin tekil bütün üyeleri</p>
+
+<p>Bazı tip ve fonksiyonların tam olarak nitelenmiş isimleri:
+Int              scala.Int 
+Boolean      scala.Boolean 
+Object            java.lang.Object 
+require         scala.Predef.require 
+assert           scala.Predef.assert</p>
+
+<p>http://www.scala-lang.org/files/archive/api/current/</p>
+
+<p>adresini kullanarak standart Scala kütüphaneleriini öğrenebilirsiniz.</p>
+
+<h2 id="traits">Traits</h2>
+<p>Trait içinde sadece kendisinden türeyen sınıfların içini doldurmak zorunda olduğu içi boş metod tanımlarının yapıldığı bir yapıdır. Kısacası kendisini kullanacak sınıflar için yerine getirilmesi gereken metodları belirtir.
+-Scala Javada olduğu gibi yanlızca bir “superclass” bulundurabilir. 
+-Abstract class gibidir ancak trait tanımlarken, tanımlamamızın önüne “trait” anahtar kelimesini getiririz.</p>
+
+<script src="https://gist.github.com/GlcEbru/590a7f55d6309c53eb233da71eef2744.js"></script>
+
+<p>-Traitlerin içindeki metodlar sadece metod imzasından ibaret olabilirler. ayrıca trait constructorları parametre almazlar. 
+-Traitlerin içindeki metodlar metod implementasyonunu da içerebilirler. bu yönüyle abstract classlara benzer.
+-Sınıflar, nesneler ve traitler en çok bir sınıftan miras alabilir fakat isteğe bağlı olarak birden fazla trait alabilir.</p>
+
+<p>class Square extends Shape with Planar with Movable …</p>
+
+<p>-Traitler Javadaki interfacelere benzerler fakat daha güçlülerdir çünkü fields ve concrete metodlarını içerirler. İnterfaceler yanlızla abstract metodlarını içerir. 
+-Kısaca özetlemiş olursak traitler geliştirdiğimiz yazılımda aynı kavramın birden farklı şekilde uygulandığında bu kavramı soyutlayarak kodun esnekliğini,okunulabilirliğini arttırmak ve değişimin etkisini en aza indirmek için kullanılan yapılardır.</p>
+
+	  </div>
+
+		
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			
+				<li>
+					<a href="/#Scala-ref">
+					Scala <span>(4)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/#Classes-ref">
+					Classes <span>(2)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/#Objects-ref">
+					Objects <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Scala Sınıflar(Classes) ve Nesneler(Objects)-3&via=glcebru"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/2016/06/05/Scala-S%C4%B1n%C4%B1flar(Classes)-ve-Nesneler(Objects).html" title="Scala Sınıflar(Classes) ve Nesneler(Objects)">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="/2016/07/21/react-classes.html" title="React.createClass ve extends React.Component Arasındaki Farklar">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+
+	<div class="col-sm-2 sidebar-2">
+
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+    <div class="disqus">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'ebrugulec-com'; // required: replace example with your forum shortname
+		var disqus_identifier = '/2016/06/06/Scala-S%C4%B1n%C4%B1flar(Classes)-ve-Nesneler(Objects)-3.html';
+		var disqus_url = 'http://glcebru.github.com/2016/06/06/Scala-S%C4%B1n%C4%B1flar(Classes)-ve-Nesneler(Objects)-3.html';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+		<footer>
+			<hr/>
+			<p>
+				&copy; 2017 Ebru Gulec with <a href="http://jekyllrb.com/">Jekyll</a>. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+
+
+

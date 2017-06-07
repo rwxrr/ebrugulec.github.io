@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Scala Higher Order ve Anonymous Fonksiyonlar, Currying</title>
+	
+	<meta name="author" content="Ebru Gulec">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link rel="icon" type="image/png" href="assets/img/favicon.png" />	
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/ebrugulec">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/glcebru">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="mailto:ebru@ebrugulec.com">
+				<i class="fa fa-envelope"></i>
+			</a>
+			
+			<a class="navbar-brand" href="/">
+				<img src="/assets/img/ebru.png/?s=35" class="img-circle" />
+				Ebru Güleç
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+	<div class="col-sm-3 sidebar hidden-xs" style="">
+		<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<img src="/assets/img/ebru.png/?s=150" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="/">Ebru Güleç</a>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+	Computer Engineering Student
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/ebrugulec">
+				<i class="fa fa-github fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com/glcebru">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:ebru@ebrugulec.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+<!-- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3">
+		<div class="page-header">
+  <h1>Scala Higher Order ve Anonymous Fonksiyonlar, Currying </h1>
+</div>
+
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   June
+	   2nd,
+	     
+	   2016
+	 </span>
+	  <div class="article_body">
+	  <h3 id="higer-order-functions">Higer-Order Functions:</h3>
+<p>Scala Higer-Order Fonksiyon tanımlamaya izin veir. Fonksiyonları diğer fonksiyonlara parametre olarak gönderebiliriz ya da işlemin sonunda elde ettiğimiz sonuç bir fonksiondur.</p>
+
+<p>Örneğin; iki tam sayı arasındaki sayıların kübünü bulmak istiyoruz.</p>
+
+<script src="https://gist.github.com/GlcEbru/b5cb8dd12580c3fd865faffe9a3483c2.js"></script>
+
+<p>Burada sumCubes’ün içerisinde cube fonksiyonunu çağırmak yerine fonksiyonu direk parametre olarak gönderebiliriz. İfadeyi şu şekilde tanımlarsak;</p>
+
+<script src="https://gist.github.com/GlcEbru/2af8d8eae6bb70039e1fa9396e57e30c.js"></script>
+
+<p>Bu tanımladığımız ifadeyi küp ve faktoriyel bulma ile örneklendirebiliriz.</p>
+
+<script src="https://gist.github.com/GlcEbru/1f41ddf1b949e891156a74554c7fb298.js"></script>
+
+<p>Burada cube ve fact;</p>
+
+<script src="https://gist.github.com/GlcEbru/c4efe1a52f8aabb8033df56eebb8afb8.js"></script>
+
+<p>ifadeleri ile eşleşir.</p>
+
+<p>Fonksiyon Tipi: a =&gt; b ifadesi bize “a” giriş değerini “b” ise sonuç değerini belirtir.</p>
+
+<p>Bu ifadelerde dikkatinizi birşey çekmiş olmalı. Neden birden çok yardımcı fonksiyon tanımladık. Bu tanımlamaları yapmadanda işlemimizi gerçekleştirebilir miyiz? İşte bu kısımda devreye Anonymous Fonksiyonlar giriyor.</p>
+
+<h3 id="anonymous-functions">Anonymous Functions:</h3>
+
+<p>Fonksiyonları bir diğer fonksiyona gönderirken, parametre olarak geçen birçok küçük fonksiyonun oluşmasına sebep olur.
+Bu fonksiyonları def kullanarak tanımlamak bazen program yazan kişiye angarya yük olabilir.<br />
+Örneğin ekrana “abc” ifadesini yazmak istiyoruz. Bunu iki şekilde yapabiliriz. Birincisi def kullanarak;</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">def</span> <span class="nx">str</span> <span class="o">=</span> <span class="err">“</span><span class="nx">abc</span><span class="err">”</span><span class="p">;</span>
+<span class="nx">println</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span></code></pre></figure>
+
+<p>İkinci yol ise direk ifadeyi yazarak.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">println</span><span class="p">(</span><span class="err">“</span><span class="nx">abc</span><span class="err">”</span><span class="p">)</span></code></pre></figure>
+
+<p>Bu örnekde karakter dizileri değişmez literallerdir. Benzer olarak fonksiyonlarda literaller gibidir isimsiz fonksiyon yazmamıza izin verir. Bu fonksiyonlara Anonymous Functions adı verilir.</p>
+
+<p>Anonymous Functions Syntax:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="nx">x</span><span class="err">:</span> <span class="nx">Int</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span><span class="o">*</span><span class="nx">x</span><span class="o">*</span><span class="nx">x</span></code></pre></figure>
+
+<p>Burada (x: Int)  ifademizin parametresini , x<em>x</em>x ise esas kısmını oluşturuyor.</p>
+
+<p>Yukarıdaki küp örneğini anonymous fonksiyon şeklinde tekrardan düzenlersek.</p>
+
+<script src="https://gist.github.com/GlcEbru/b40013ea5c1000c84a7da22d7e087d07.js"></script>
+
+<p>Peki biz bu ifadeyi daha sade bir hale getirebilirmiyiz. Tabiki evet.</p>
+
+<h3 id="currying">Currying:</h3>
+
+<p>Amaci bir fonksiyona luzum dahilinde ihtiyaci oldugundan daha az parametre gonderebilmektir.</p>
+
+<script src="https://gist.github.com/GlcEbru/0bef36bb09af3729fafd6713171c28f8.js"></script>
+
+<p>Çoklu Parametre Listesinin Açılımı:</p>
+
+<p>Kullandığımız fonksiyonlar birden çok parametre içeriyorsa bunu currying mantığı kullanarak daha sade hale getirebiliriz.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">def</span> <span class="nx">f</span><span class="p">(</span><span class="nx">args1</span><span class="p">)....(</span><span class="nx">argsn</span><span class="p">)</span> <span class="o">=</span> <span class="nx">E</span> </code></pre></figure>
+
+<p>Genel olarak fonksiyonara argüman gönderme işlemi bu şekilde yapılır. Eğer n değeri 1 den büyük ise yeni bir fonksiyon tanımlamalıyız;</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">def</span> <span class="nx">f</span><span class="p">(</span><span class="nx">args1</span><span class="p">)...(</span><span class="nx">argsn</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="p">{</span><span class="nx">def</span> <span class="nx">g</span><span class="p">(</span><span class="nx">argsn</span><span class="p">)</span> <span class="o">=</span> <span class="nx">E</span><span class="p">;</span><span class="nx">g</span><span class="p">}</span></code></pre></figure>
+
+<p>Daha sade bir şekilde ifadeyi Anonymous Function şekline getirisek;</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">def</span> <span class="nx">f</span><span class="p">(</span><span class="nx">args1</span><span class="p">)....(</span><span class="nx">argsn</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="nx">argsn</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">E</span></code></pre></figure>
+
+<p>İşlemimiz n kez devam ediyor ise;</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">def</span><span class="p">(</span><span class="nx">args1</span><span class="p">)...(</span><span class="nx">argsn</span><span class="o">-</span><span class="mi">1</span><span class="p">)(</span><span class="nx">agsn</span><span class="p">)</span> <span class="o">=</span> <span class="nx">E</span></code></pre></figure>
+
+<p>Bütün parametreleri nested ve anonymous fonksiyon şeklinde yazarız.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">def</span> <span class="nx">f</span> <span class="o">=</span> <span class="p">(</span><span class="nx">args1</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">args2</span> <span class="o">=&gt;</span> <span class="p">...(</span><span class="nx">argsn</span> <span class="o">=&gt;</span> <span class="nx">E</span><span class="p">)...))</span></code></pre></figure>
+
+<p>Bu tanımlama şekli Currying olarak isimlendirilir.</p>
+
+<p>Hemen ufak bir örnek yapalım. 
+Bir fonksiyon tanımlayalım. Bu fonksiyon a ve b arasındaki sayıların karelerini çarpsın.</p>
+
+<script src="https://gist.github.com/GlcEbru/9163ffa5da1f251d91cee4db2c369c1a.js"></script>
+
+<p>Şimdide fact adlı bir fonksiyon tanımlayalım. Bu fonksiyon sayının faktöriyelini alsın ancak product fonksiyonunu kullanarak bunu gerçekleştirsin.</p>
+
+<script src="https://gist.github.com/GlcEbru/33fce929181690f5d16ad950815d58b6.js"></script>
+
+
+	  </div>
+
+		
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			
+				<li>
+					<a href="/#Scala-ref">
+					Scala <span>(4)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/#Higher Order Functions-ref">
+					Higher Order Functions <span>(1)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/#Anonymous Functions-ref">
+					Anonymous Functions <span>(1)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/#Currying-ref">
+					Currying <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Scala Higher Order ve Anonymous Fonksiyonlar, Currying&via=glcebru"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/2016/05/17/Hello-Scala.html" title="Hello Scala!">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="/2016/06/05/Scala-S%C4%B1n%C4%B1flar(Classes)-ve-Nesneler(Objects).html" title="Scala Sınıflar(Classes) ve Nesneler(Objects)">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+
+	<div class="col-sm-2 sidebar-2">
+
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+    <div class="disqus">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'ebrugulec-com'; // required: replace example with your forum shortname
+		var disqus_identifier = '/2016/06/02/Scala-Higher-Order-and-Anonymous-Functions-Currying.html';
+		var disqus_url = 'http://glcebru.github.com/2016/06/02/Scala-Higher-Order-and-Anonymous-Functions-Currying.html';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+		<footer>
+			<hr/>
+			<p>
+				&copy; 2017 Ebru Gulec with <a href="http://jekyllrb.com/">Jekyll</a>. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+
+
+

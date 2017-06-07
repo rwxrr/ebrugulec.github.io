@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "React.createClass ve extends React.Component Arasındaki Farklar"
-excerpt: "React.createClass ve extends React.Component Arasındaki Farklar"
+excerpt: React da bir componet’ı oluşturmanın birden farklı yolu vardır. Temelde React.createClass ve extends React.Component aynı
 tags: [React, React.createClass, extends React.Component]
 comments: true
 ---
@@ -9,7 +9,7 @@ comments: true
 React da bir componet’ı oluşturmanın birden farklı yolu vardır. Temelde React.createClass ve extends React.Component aynı işlemi farklı şekillerde yaparlar.  
 
 
-React da geleneksel olarak bir component oluşturmak için React.createClass methodu kullanılır. ES6 sınıf yapısı ile de component oluşturulabilir. 
+React da geleneksel olarak bir component oluşturmak için React.createClass methodu kullanılır. ES6 sınıf yapısı ile de component oluşturulabilir.
 
 
 Bir component oluşturmak için uygulanan bu iki yöntemde bazı farklılıklar mevcuttur. Bunlardan bazıları;
@@ -18,9 +18,9 @@ Bir component oluşturmak için uygulanan bu iki yöntemde bazı farklılıklar 
 
 #### React.createClass
 
-Burada const keyword’ü ile bir React sınıfı oluşturulmuş. Tipik base component tanımlamalarında render fonksiyonu önemli bir role sahiptir. 
+Burada const keyword’ü ile bir React sınıfı oluşturulmuş. Tipik base component tanımlamalarında render fonksiyonu önemli bir role sahiptir.
 
-İlk olarak aşağıdaki iki kod örneği arasındaki syntax farklılıklarını inceleyebilirsiniz. 
+İlk olarak aşağıdaki iki kod örneği arasındaki syntax farklılıklarını inceleyebilirsiniz.
 
 <script src="https://gist.github.com/GlcEbru/dbf756c419567b67161e6390debbd8b4.js"></script>
 
@@ -56,7 +56,7 @@ React.createClass otomatikmen this keywordüne kendi instance'ını bağlar. ES6
 
 #### React.Component
 
-Buradaki this null dur çünkü component’ın instance’ı bağlanmamıştır. 
+Buradaki this null dur çünkü component’ın instance’ı bağlanmamıştır.
 
 <script src="https://gist.github.com/GlcEbru/24052d69c9424a803f2225f5e7303c93.js"></script>
 
@@ -64,13 +64,13 @@ Doğru içeriği bağlamak için birkaç farklı yöntem kullanabiliriz. Aşağ�
 
 <script src="https://gist.github.com/GlcEbru/31e3cee7734b42d9f84fea57a5fdd1fe.js"></script>
 
-Alternatif olarak constructor’ın içerrisindeki this.handleClick bağlamını değiştirebiliriz. 
+Alternatif olarak constructor’ın içerrisindeki this.handleClick bağlamını değiştirebiliriz.
 
 <script src="https://gist.github.com/GlcEbru/53f606ea225277c94f193c6a60b211d6.js"></script>
 
 ### propTypes ve getDefaultProps:
 
-Component’a property bağlamak için kullanılır. Default değerler ile gönderilmek istendiğinde getDefaultProps()  kullanılır. 
+Component’a property bağlamak için kullanılır. Default değerler ile gönderilmek istendiğinde getDefaultProps()  kullanılır.
 
 #### React.createClass
 
@@ -86,7 +86,7 @@ Eğer ES6 ile component oluşturma işlemini gerçekleştirirsek parametre verme
 
 ### Mixins:
 
-Componentlara dışarıdan fonksiyon, property gibi özellikleri bağlamak için kullanılır. 
+Componentlara dışarıdan fonksiyon, property gibi özellikleri bağlamak için kullanılır.
 
 #### React.createClass
 
@@ -94,7 +94,7 @@ Componentlara dışarıdan fonksiyon, property gibi özellikleri bağlamak için
 
 #### React.Component
 
-ES6 sınıfları mixins’i desteklememektedir. 
+ES6 sınıfları mixins’i desteklememektedir.
 
 [Kaynak](https://toddmotto.com/react-create-class-versus-component/#reactcomponent)
 
