@@ -19,6 +19,7 @@ defaults:
 description: Ebru Gulec Personal Blog
 author:
   name: Ebru Gulec
+  avatar: "ebru.png"
   email: ebru@ebrugulec.com
   github: ebrugulec
   twitter: glcebru
