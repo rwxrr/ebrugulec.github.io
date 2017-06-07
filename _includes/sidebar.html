@@ -1,8 +1,9 @@
 <!-- sidebar.html -->
 <header class="sidebar-header" role="banner">
 	<a href="{{ site.BASE_PATH }}/">
-		<img src="//github.com/ebrugulec/ebrugulec.github.io/blob/master/assets/img/ebru/{{site.author.email_md5}}?s=150" class="img-circle" />
-
+		{% if author.avatar %}
+  		<img src="{{ site.url }}/assets/img/{{ author.avatar }}" alt="Ebru Gulec" class="img-circle">
+ 		 {% endif %}
 		
 	</a>
 	<h3 class="title">
