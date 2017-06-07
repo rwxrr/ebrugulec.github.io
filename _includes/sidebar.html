@@ -1,11 +1,13 @@
 <!-- sidebar.html -->
 <header class="sidebar-header" role="banner">
+	<a href="{{ site.BASE_PATH }}/">
+
 		{% if author.avatar contains "://" %}
     	<img src="{{ author.avatar }}" alt="{{ author.name }}">
     {% else %}
     	<img src="{{ author.avatar | prepend: "/images/ebru.png" | prepend: base_path }}" class="img-circle" alt="{{ author.name }}">
     {% endif %}
-
+</a>
 	<h3 class="title">
         <a href="{{ site.BASE_PATH }}/">{{ site.title }}</a>
     </h3>
