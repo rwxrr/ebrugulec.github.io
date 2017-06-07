@@ -51,10 +51,17 @@
 				<i class="fa fa-envelope"></i>
 			</a>
 			{% endif %}
-			<a class="navbar-brand" href="{{ site.BASE_PATH }}/">
-				<img src="//www.gravatar.com/avatar/{{site.author.email_md5}}?s=150" class="img-circle" />
-				{{ site.title }}
-			</a>
+			
+				<a class="navbar-brand" href="{{ site.BASE_PATH }}/"">
+
+		{% if author.avatar contains "://" %}
+    		<img src="{{ author.avatar }}" alt="{{ author.name }}">
+    {% else %}
+    	<img src="{{ author.avatar | prepend: "/images/ebru.png" | prepend: base_path }}" class="img-circle" alt="{{ author.name }}">
+    {% endif %}
+</a>
+			
+			
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
