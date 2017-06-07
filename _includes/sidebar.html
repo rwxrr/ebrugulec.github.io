@@ -3,7 +3,7 @@
 		{% if author.avatar contains "://" %}
     	<img src="{{ author.avatar }}" alt="{{ author.name }}">
     {% else %}
-    	<img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="img-circle" alt="{{ author.name }}">
+    	<img src="{{ author.avatar | prepend: "/images/ebru.png" | prepend: base_path }}" class="img-circle" alt="{{ author.name }}">
     {% endif %}
 
 	<h3 class="title">
