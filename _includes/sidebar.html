@@ -1,7 +1,10 @@
 <!-- sidebar.html -->
 <header class="sidebar-header" role="banner">
-
-		<img src="https://github.com/ebrugulec/ebrugulec.github.io/blob/master/images/ebru.png/{{ author.avatar }}" alt="Ebru Gulec" class="img-circle">
+		{% if author.avatar contains "://" %}
+    	<img src="{{ author.avatar }}" alt="{{ author.name }}">
+    {% else %}
+    	<img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="img-circle" alt="{{ author.name }}">
+    {% endif %}
 
 	<h3 class="title">
         <a href="{{ site.BASE_PATH }}/">{{ site.title }}</a>
