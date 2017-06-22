@@ -174,4 +174,4 @@ Turgut Uyar'ın da dediği gibi;
 *herkes herkesi sonradan öğrenirmiş*<br/>
 *bunu da sonradan öğrendim*<br/>
 
-Hoşçakal :raised_hands:
+Şimdilik hoşçakal :raised_hands:
