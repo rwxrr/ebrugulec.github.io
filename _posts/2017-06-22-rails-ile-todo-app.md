@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Todo Da Ne Ki?
-date:   2016-09-06 22:07:19
+date:   2017-06-22 20:00:19
 excerpt:
 tags: Todo, Rails]
 modified: 2016-09-06
