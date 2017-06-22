@@ -137,87 +137,97 @@
 
 <p>Ve bütün engeller ortadan kalktığına göre artık anlatmalıydım ve hemen işe koyuldum. (Hemen yapmadı)</p>
 
-<p>Başlıyoruz……</p>
+<p>Başlıyoruz..<br>
+<img src="http://localhost:4000/images/todo7.jpg" alt="todo image 1"></p>
 
 <h2>Rails ile Todo App</h2>
 <p>(Asıl uygulamanın anlatıldığı kısım)
-	Uygulamayı anlatırken ruby ve rails’ın nasıl kurulduğundan bahsetmeyeceğim çünkü google da küçük bir arama ile bunu öğrenebilirsiniz. Onun yerine direk uygulama kısmına geçiyorum.</p>
+	Uygulamayı anlatırken ruby ve rails’ın nasıl kurulduğundan bahsetmeyeceğim çünkü google da küçük bir arama ile bunu öğrenebilirsiniz. Onun yerine direk uygulama kısmına geçiyorum.<br>
+	Bu arada benim kullandığım ruby ve rails versiyonu;<br>
+	ruby: ruby 2.2.2p95<br>
+	rails: Rails 5.0.4<br>
+<img class="emoji" title=":small_red_triangle:" alt=":small_red_triangle:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f53a.png" height="20" width="20" align="absmiddle"> Rails da yeni bir uygulama başlatmak için terminalimizden</p>
 
-<p><img class="emoji" title=":arrow_right:" alt=":arrow_right:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/27a1.png" height="20" width="20" align="absmiddle"> Rails da yeni bir uygulama başlatmak için terminalimizden</p>
-
-<p><strong><em>$ rails new uygulamaadi(Todo-App)</em></strong></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">rails</span> <span class="kp">new</span> <span class="n">uygulamaadi</span><span class="p">(</span><span class="no">Todo</span><span class="o">-</span><span class="no">App</span><span class="p">)</span></code></pre></figure>
 
 <p>komutumuzu çalıştırıyoruz. Böylece rails gerekli olan yapıları oluşturuyor. Uygulamamızı tarayıcıda görüntüleyebilmek için</p>
 
-<p><strong><em>$ cd  Todo-App</em></strong>
-<strong><em>$ rails server</em></strong></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">cd</span>  <span class="no">Todo</span><span class="o">-</span><span class="no">App</span>
+<span class="err">$</span> <span class="n">rails</span> <span class="n">server</span></code></pre></figure>
 
 <p>komutunu çalıştırıyoruz.</p>
 
-<p>http://localhost:3000/ adresine giderek uygulamamızın çalışıp çalışmadığını kontrol edebiliriz.</p>
+<p><em>http://localhost:3000/</em> adresine giderek uygulamamızın çalışıp çalışmadığını kontrol edebiliriz.</p>
 
 <p><img src="http://localhost:4000/images/todo1.png" alt="todo image 1"></p>
 
-<p>Tebrikler artık çalışan bir rails uyuglamasına sahipsin ancak işin daha başında olduğunu unutma :) Hadi devam edelim</p>
+<p>Tebrikler artık çalışan bir rails uyuglamasına sahipsin ancak işin daha başında olduğunu unutma :)
+Hadi devam edelim</p>
 
 <p>Rails da scaffold adında kullanması inanılmaz kolay bir yapı var. Şöyle ki biz scaffold oluşturmak istediğimiz zaman rails bizim için model, view, controller hepsini otomatik olarak oluşturuyor. Bu da işimizi bir hayli hızlandırıyor. Bu uygulamada da öncelikle bir yapılacaklar listemize ihtiyacımız var yani todo listimiz olmalı. Scaffold ile todo list oluşturmak için;</p>
 
-<p><strong><em>$ rails g scaffold todo_list title:string description:text</em></strong></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">rails</span> <span class="n">g</span> <span class="n">scaffold</span> <span class="n">todo_list</span> <span class="n">title</span><span class="ss">:string</span> <span class="n">description</span><span class="ss">:text</span></code></pre></figure>
 
 <p>Hemen ardında yapılan değişiklikleri veritabanına aktarmalıyız.</p>
 
-<p><strong><em>$ rails db:migrate</em></strong></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">rails</span> <span class="n">db</span><span class="ss">:migrate</span></code></pre></figure>
 
-<p>Oluşturduğumuz yapıyı görüntülemek için tarayıcımızdan http://localhost:3000/todo_lists adresine gidersek şöyle bir ekran ile karşılaşırız.
-<img src="http://localhost:4000/images/todo2.png" alt="todo image 1"></p>
+<p>Oluşturduğumuz yapıyı görüntülemek için tarayıcımızdan <em>http://localhost:3000/todo_lists</em> adresine gidersek şöyle bir ekran ile karşılaşırız.</p>
+
+<p><img src="http://localhost:4000/images/todo2.png" alt="todo image 1"></p>
 
 <p>Şimdilik her şey yolunda gibi görünüyor. Yeni bir todo list ekleyip onu görüntülemeyi deneyebilirsin.</p>
 
 <p><img src="http://localhost:4000/images/todo3.png" alt="todo image 1"></p>
 
-<p>Artık bütün todoları görüntüleyebileceğimiz bir index sayfamız var ancak bu sayfayı direk  http://localhost:3000 adresinden görmemiz için root.rb dosyamızın içerisine</p>
+<p>Artık bütün todoları görüntüleyebileceğimiz bir index sayfamız var ancak bu sayfayı direk <em>http://localhost:3000</em> adresinden görmemiz için root.rb dosyamızın içerisine</p>
 
-<p>root “todo_lists#index”</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">root</span> <span class="s2">"todo_lists#index"</span></code></pre></figure>
 
 <p>ifadesini eklemeliyiz.</p>
 
 <p>Yapılacaklar listemizi(todo list) oluşturduktan sonra sıra geldi içerisine görevleri ekleyebileceğimiz todo item kısmını oluşturmaya Bunun için öncelikle bir model oluşturmalıyız.</p>
 
-<p><strong><em>$ rails g model todo_item content:string todo_list:references</em></strong>
-<strong><em>$ rails db:migrate</em></strong></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">rails</span> <span class="n">g</span> <span class="n">model</span> <span class="n">todo_item</span> <span class="n">content</span><span class="ss">:string</span> <span class="n">todo_list</span><span class="ss">:references</span>
+<span class="err">$</span> <span class="n">rails</span> <span class="n">db</span><span class="ss">:migrate</span></code></pre></figure>
 
-<p>Buradaki todo_list:references ifadesi modeller arasında ilişkilendirme yapmak için kullanılıyor.
-Eğer app/models/todo_item.rb dosyasını kontrol ederseniz orada belongs_to :todo_list ibaresini görebilirsiniz. Bu ilişkiyi tam anlamı ile oluşturmak için todo list modelimize todo_item’ın varlığından haberdar etmeliyiz. Yani Todo list’in items ları olabilir. Bunu belirtmek için  app/models/todo_list.rb dosyamıza gidip</p>
+<p>Buradaki <strong>todo_list:references</strong>
+ifadesi modeller arasında ilişkilendirme yapmak için kullanılıyor.
+Eğer <strong>app/models/todo_item.rb</strong> dosyasını kontrol ederseniz orada <strong>belongs_to :todo_list</strong> ibaresini görebilirsiniz. Bu ilişkiyi tam anlamı ile oluşturmak için todo list modelimize todo_item’ın varlığından haberdar etmeliyiz. Yani Todo list’in items ları olabilir. Bunu belirtmek için <strong>app/models/todo_list.rb</strong> dosyamıza gidip</p>
 
-<p>has_many :todo_items</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">has_many</span> <span class="ss">:todo_items</span></code></pre></figure>
 
 <p>ifadesini eklemeliyiz.
 Modelimiz oluşturduktan sonra sıra geldi todo item controllerını oluşturmaya. Bunun için;</p>
 
-<p>rails g controller todo_list
-dememiz yeterli. Ardından da controller’ımızın actionlarını oluşturalım.</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">rails</span> <span class="n">g</span> <span class="n">controller</span> <span class="n">todo_list</span></code></pre></figure>
+
+<p>dememiz yeterli. Ardından da controller’ımızın actionlarını oluşturalım.</p>
 
 <script src="https://gist.github.com/ebrugulec/0acd7b44e891e165a48d360f54832fc8.js"></script>
 
-<p>Kısaca actionları açıklamak gerekirse.
-set_todo_list metodu ile itemları ekleyaceğimiz todo list’i buluyoruz. Create metodu ile de bulduğumuz todo list’e yeni bir item oluşturuyoruz. destroy metodu ise tahmin edeceğiniz üzere oluşturduğumuz todo item’ı silmemize yarıyor. Son olarak complete metodu ise o görevin yapılıp yapılmadığını kontrol ederken kullanıyoruz. Metodların yazım diline çok yakın oldukları için ilk baktığınızda çoğunlukla ne işe yaradıkları anlaşılıyor o yüzden üzerinde fazla durmayacağım. Ancak burada before_action’ları kullanmamız belki kafanızı karıştırabilir. Bunun sebebi tekrarı önlemek için. Nasıl derseniz; örneğin todo item oluştururen de, yok ederken de elimizde bir todo list’imizin olması gerekli. Sürekli @todo_list = TodoList.find(params[:todo_list_id]) ifadesini çağırmak yerine bunu bir fonksiyonun içerisine koyup istenilen her fonksiyondan önce çağırmak için before_actionı kullanırız.</p>
+<p>Kısaca actionları açıklamak gerekirse;
+<strong>set_todo_list</strong> metodu ile itemları ekleyaceğimiz todo list’i buluyoruz. <strong>create</strong> metodu ile de bulduğumuz todo list’e yeni bir item oluşturuyoruz. <strong>destroy</strong> metodu ise tahmin edeceğiniz üzere oluşturduğumuz todo item’ı silmemize yarıyor. Son olarak <strong>complete</strong> metodu ise o görevin yapılıp yapılmadığını kontrol ederken kullanıyoruz.</p>
 
-<p>Todo item controller ve modelimizi oluşturduktan sonra sıra geldi MVC yapımızın son katmanı olan view kısmını oluşturmaya. Bunun için app/views/todo_items klasörünün içerisine
- _form.html.erb ve _todo_item.html.erb dosyamızı oluşturuyoruz.</p>
+<p>Metodların yazım diline çok yakın oldukları için ilk baktığınızda çoğunlukla ne işe yaradıkları anlaşılıyor o yüzden üzerinde fazla durmayacağım. Ancak burada <strong>before_action</strong>‘ları kullanmamız belki kafanızı karıştırabilir. Bunun sebebi tekrarı önlemek için. Örneğin todo item oluştururken de, yok ederken de elimizde bir todo list’imizin olması gerekli. Sürekli
+<b style="color: purple">@todo_list = TodoList.find(params[:todo_list_id])</b> ifadesini çağırmak yerine bunu bir fonksiyonun içerisine koyup istenilen her fonksiyondan önce çağırmak için before_action’ı kullanırız.</p>
 
-<p>_form.html.erb içeriği;</p>
+<p>Todo item controller ve modelimizi oluşturduktan sonra sıra geldi MVC yapımızın son katmanı olan view kısmını oluşturmaya. Bunun için <strong>app/views/todo_items</strong> klasörünün içerisine
+ <strong>_form.html.erb</strong> ve <strong>_todo_item.html.erb</strong> dosyamızı oluşturuyoruz.</p>
+
+<p><strong>_form.html.erb</strong> içeriği;</p>
 
 <script src="https://gist.github.com/ebrugulec/0abbf53c0b445839fa6e342e3d5ae88d.js"></script>
 
-<p>_todo_item.html.erb içeriği;</p>
+<p><strong>_todo_item.html.erb</strong> içeriği;</p>
 
 <script src="https://gist.github.com/ebrugulec/57efa7ae97dd57af86bd3225b72e6b1c.js"></script>
 
-<p>Artık todo itemların view kısımları hazır. Son adım olarak bunları halihazırda scaffold ile oluşturulan todo list’imizin içerisinde gösterme kısmı kalıyor. Bunun için app/views/todo_lists/show.html.erb dosyamızın içerisine todo item’ın view larını gömmeliyiz. O dosyamız da şu şekilde;</p>
+<p>Artık todo itemların view kısımları hazır. Son adım olarak bunları halihazırda scaffold ile oluşturulan todo list’imizin içerisinde gösterme kısmı kalıyor. Bunun için <strong>app/views/todo_lists/show.html.erb</strong> dosyamızın içerisine todo item’ın view larını gömmeliyiz. O dosyamız da şu şekilde;</p>
 
 <script src="https://gist.github.com/ebrugulec/ba8519df17345804a078395b9c63ea9d.js"></script>
 
-<p>Bu işlemi yaptıktan sonra config/routes.rb dosyamızda biraz değişiklik yapmamız gerekli. Çünkü yeni bir item oluşturduğumuzda bu item seçilen todo list’in altında olmalı, oradan ulaşabilmeliyiz. Bu yüzden içi içe resources tanımladık.</p>
+<p>Bu işlemi yaptıktan sonra <strong>config/routes.rb</strong> dosyamızda biraz değişiklik yapmamız gerekli. Çünkü yeni bir item oluşturduğumuzda bu item seçilen todo list’in altında olmalı, oradan ulaşabilmeliyiz. Bu yüzden içi içe resources tanımladık.</p>
 
 <script src="https://gist.github.com/ebrugulec/7621da2229ea5838ede81c32754fe1dd.js"></script>
 
@@ -227,48 +237,43 @@ set_todo_list metodu ile itemları ekleyaceğimiz todo list’i buluyoruz. Creat
 
 <p>Evettt geldik en son kısma. Şuana kadar yeni bir görev ekleyip, silebiliyoruz. Hadi bu görevlerin bir de tamamlanıp tamamlanmadığını belirten bir ibare koyalım. Bunun için hemen consolumuza dönelim ve bir migration oluşturalım.</p>
 
-<p><strong><em>$ rails g migration add_completed_at_to_todo_items completed_at:datetime</em></strong></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">rails</span> <span class="n">g</span> <span class="n">migration</span> <span class="n">add_completed_at_to_todo_items</span> <span class="n">completed_at</span><span class="ss">:datetime</span>
+<span class="err">$</span> <span class="n">rails</span> <span class="n">db</span><span class="ss">:migrate</span></code></pre></figure>
 
-<p>Eğer db/migrate klasörünün içerisine bakarsak oluşturulma tarihi ile isimlendirilen “olusturulmaTarihi_add_completed_at_to_todo_items.rb” adında bir dosya görürüz. İçeriğine baktığımızda todo_items tablosuna yeni bir kolon eklediğini fark edebiliriz.</p>
-
-<ul>
-  <li>Migrate’imizi yapmayı unutmayalım.
-<strong><em>$ rails db:migrate</em></strong>
-</li>
-</ul>
-
-<p>Controller’ımızda hali hazırda complete metodumuz bulunmakta. Bu metod çalıştırıldığında todo item’ın tamamlanmış olduğunu anlıyoruz. Metodu çalıştırmak için routes.rb dosyamıza gidip complete action’ının hangi http isteği karşısında çalıştıracağını belirtiyoruz. routes.rb dosyamızın son hali.</p>
+<p>Controller’ımızda hali hazırda <strong>complete</strong> metodumuz bulunmaktaydı. Bu metod çalıştırıldığında todo item’ın tamamlanmış olduğunu anlıyoruz. Metodu çalıştırmak için <strong>routes.rb</strong> dosyamıza gidip complete action’ının hangi http isteği karşılığında çalıştıracağını belirtiyoruz. <strong>routes.rb</strong> dosyamızın son hali.</p>
 
 <script src="https://gist.github.com/ebrugulec/a5288e62feadc8ba88328409257e0cd6.js"></script>
 
-<p>amamlanma işlemini view da göstermek için; app/views/todo_items/_todo_item.html.erb
+<p>Tamamlanma işlemini view da göstermek için; <strong>app/views/todo_items/_todo_item.html.erb</strong>
 dosyamızın içerisine</p>
 
-<p>&lt;%= link_to “Mark as Complete”, complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch %&gt;</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="sx">%= link_to "Mark as Complete", complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch %&gt;</span></code></pre></figure>
 
-<p>ibaresini ekliyoruz. Dosyanın en son hali;
+<p>ifadesini ekliyoruz. Dosyanın en son hali;
 <script src="https://gist.github.com/ebrugulec/76ba338670077e75644b2ae2d49f1573.js"></script></p>
 
-<p><img class="emoji" title=":sparkles:" alt=":sparkles:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png" height="20" width="20" align="absmiddle"> path yapısını terminalimizde görüntülemek için “rails routes” komutunu kullanabiliriz.</p>
+<p><img class="emoji" title=":heavy_exclamation_mark:" alt=":heavy_exclamation_mark:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png" height="20" width="20" align="absmiddle"> path yapısını terminalimizde görüntülemek için</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">rails</span> <span class="n">routes</span></code></pre></figure>
+
+<p>komutunu kullanabiliriz.</p>
 
 <p><img src="http://localhost:4000/images/todo3.png" alt="todo image 1"></p>
 
 <p>Buraya kadar geldiysen tebrikler artık çok basitte olsa bir todo app’in var. <img class="emoji" title=":tada:" alt=":tada:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f389.png" height="20" width="20" align="absmiddle"> <img class="emoji" title=":tada:" alt=":tada:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f389.png" height="20" width="20" align="absmiddle">
-Style kısmını sana bırakıyorum. O yaratıcı ruhun ile neler yapabileceğini görmek isterim. :D
-Bu arada Mackenzie’nin yaptığu uygulamanın çalışır halini <a href="https://nameless-stream-59526.herokuapp.com/">şu adresten</a> görebilirsin.
-Herhangi bir problem ile karşılaşırsan ya da fikirlerini belirtmek istersen bana “ebru[at]ebrugulec.com” adresinde ulaşabileceğini sakın unutma. Kapanışı da yine postun yazılma amacına uygun olarak Ebruca yapmak istiyorum.</p>
+Style kısmını sana bırakıyorum. O yaratıcı ruhun ile neler yapabileceğini görmek isterim <img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f605.png" height="20" width="20" align="absmiddle">
+Bu arada uygulamanın çalışır halini <a href="https://nameless-stream-59526.herokuapp.com/">şu adresten</a> görebilirsin. Github reposu da <a href="https://github.com/ebrugulec/Todo-App">şurada</a>. Herhangi bir problem ile karşılaşırsan ya da fikirlerini belirtmek istersen bana sosyal medyadan veyahut <em>“ebru[at]ebrugulec.com”</em> adresinde ulaşabileceğini sakın unutma. Kapanışı da yine postun yazılma amacına uygun olarak Ebruca yapıyorum <img class="emoji" title=":dizzy:" alt=":dizzy:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4ab.png" height="20" width="20" align="absmiddle"></p>
 
 <p>Turgut Uyar’ın da dediği gibi;</p>
 
 <p><em>ben bazen eksilirim biraz</em><br>
 <em>aslında hepimiz eksilirmişiz biraz</em><br>
-<em>bunu sonradan öğrendim</em></p>
-
-<p><em>ben aslında her şeyi sonradan öğrendim</em><br><br>
+<em>bunu sonradan öğrendim</em><br><br>
+<em>ben aslında her şeyi sonradan öğrendim</em><br>
 <em>herkes herkesi sonradan öğrenirmiş</em><br>
 <em>bunu da sonradan öğrendim</em><br></p>
 
-<p>Sevgiyle kal  <img class="emoji" title=":raised_hands:" alt=":raised_hands:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f64c.png" height="20" width="20" align="absmiddle"></p>
+<p>Hoşçakal <img class="emoji" title=":raised_hands:" alt=":raised_hands:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f64c.png" height="20" width="20" align="absmiddle"></p>
 
 	  </div>
 
